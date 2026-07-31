@@ -12,8 +12,8 @@ export class ProjectsService {
     return projects
   }
 
-  async findById(){
-    
+  async findById(id: string) {
+    return await this.prisma.project.findUnique({ where: { id } });
   }
 
 }
