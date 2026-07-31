@@ -11,4 +11,9 @@ export class ProjectsService {
     const projects = await this.prisma.project.findMany();
     return projects
   }
+
+  async findById(){
+    
+  }
+
 }
