@@ -1,4 +1,4 @@
-import { Controller, Get, NotFoundException, Param, ParseIntPipe, ParseUUIDPipe } from "@nestjs/common";
+import { Body, Controller, Get, NotFoundException, Param, ParseIntPipe, ParseUUIDPipe, Patch } from "@nestjs/common";
 import { ProjectsService } from "./projects.service";
 import { UUID } from "crypto";
 
@@ -23,5 +23,19 @@ export class ProjectsController {
     }
 
     return project;
+  }
+
+  @Patch(':id')
+  async updateProject(
+    @Param('id', new ParseUUIDPipe) id: string,
+    @Body() updateData: { production_deadline?: number }
+  ) {
+    const updatedProject = await this.projectsService.update(id, updateData);
+
+    if (!updatedProject) {
+      throw new NotFoundException('Projeto não encontrado para atualização.');
+    }
+
+    return updatedProject;
   }
 }
