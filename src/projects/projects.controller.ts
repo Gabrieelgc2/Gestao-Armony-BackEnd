@@ -25,17 +25,11 @@ export class ProjectsController {
     return project;
   }
 
-  // @Patch(':id')
-  // async updateProject(
-  //   @Param('id', new ParseUUIDPipe) id: string,
-  //   @Body() updateData: { production_deadline?: number }
-  // ) {
-  //   const updatedProject = await this.projectsService.update(id, updateData);
-
-  //   if (!updatedProject) {
-  //     throw new NotFoundException('Projeto não encontrado para atualização.');
-  //   }
-
-  //   return updatedProject;
-  // }
+  @Patch(':id')
+  async update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() updateData: any,
+  ) {
+    return this.projectsService.update(id, updateData);
+  }
 }
