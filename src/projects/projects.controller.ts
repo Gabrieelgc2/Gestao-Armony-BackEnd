@@ -1,6 +1,5 @@
 import { Body, Controller, Get, NotFoundException, Param, ParseIntPipe, ParseUUIDPipe, Patch } from "@nestjs/common";
 import { ProjectsService } from "./projects.service";
-import { UUID } from "crypto";
 
 @Controller('projects')
 export class ProjectsController {
