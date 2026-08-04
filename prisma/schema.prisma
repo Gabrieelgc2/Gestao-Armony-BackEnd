@@ -17,7 +17,6 @@ model Project {
   production_deadline Int?
 
   instrucao_date String?
-  instrucao_responsavel String?
  
   medicao_date String?
   medicao_responsavel String?
