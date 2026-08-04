@@ -16,22 +16,22 @@ model Project {
   status             String   @default("NOVO")
   production_deadline Int?
 
-  instrucao_date DateTime? @db.Date
+  instrucao_date String?
   instrucao_responsavel String?
  
-  medicao_date DateTime? @db.Date
+  medicao_date String?
   medicao_responsavel String?
 
-  pre_instalacao_date DateTime? @db.Date
+  pre_instalacao_date String?
   pre_instalacao_responsavel String?
 
-  pos_instalacao_date DateTime? @db.Date
+  pos_instalacao_date String?
   pos_instalacao_responsavel String?
 
-  entrega_obra_date DateTime? @db.Date
+  entrega_obra_date String?
   entrega_obra_responsavel String?
   
-  etapa_final_date DateTime? @db.Date
+  etapa_final_date String?
   etapa_final_responsavel String?
 
   @@map("projects")
