@@ -1,9 +1,9 @@
-import { Body, Controller, Get, NotFoundException, Param, ParseIntPipe, ParseUUIDPipe, Patch, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, NotFoundException, Param, ParseUUIDPipe, Patch, UseGuards } from "@nestjs/common";
 import { ProjectsService } from "./projects.service";
 import { JwtAuthGuard } from "src/auth/jwt-auth-guard";
 
 @Controller('projects')
-// @UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard)
 export class ProjectsController {
   constructor(
     private readonly projectsService: ProjectsService,

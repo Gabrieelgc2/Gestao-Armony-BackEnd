@@ -4,7 +4,7 @@ import {
   ExecutionContext,
   UnauthorizedException,
 } from '@nestjs/common';
-import { supabase } from '../lib/supabase'; // Ajuste o caminho da sua instância/serviço do Supabase
+import { supabase } from '../lib/supabase';
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
