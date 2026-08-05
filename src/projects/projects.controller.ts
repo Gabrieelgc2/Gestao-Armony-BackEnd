@@ -1,7 +1,9 @@
-import { Body, Controller, Get, NotFoundException, Param, ParseIntPipe, ParseUUIDPipe, Patch } from "@nestjs/common";
+import { Body, Controller, Get, NotFoundException, Param, ParseIntPipe, ParseUUIDPipe, Patch, UseGuards } from "@nestjs/common";
 import { ProjectsService } from "./projects.service";
+import { JwtAuthGuard } from "src/auth/jwt-auth-guard";
 
 @Controller('projects')
+@UseGuards(JwtAuthGuard)
 export class ProjectsController {
   constructor(
     private readonly projectsService: ProjectsService,
@@ -23,7 +25,6 @@ export class ProjectsController {
 
     return project;
   }
-
   @Patch(':id')
   async update(
     @Param('id', ParseUUIDPipe) id: string,
