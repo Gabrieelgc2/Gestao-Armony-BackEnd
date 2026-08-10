@@ -1,6 +1,5 @@
 import { Body, Controller, Get, NotFoundException, Param, ParseUUIDPipe, Patch, UseGuards } from "@nestjs/common";
 import { ProjectsService } from "./projects.service";
-import { JwtAuthGuard } from "src/auth/jwt-auth-guard";
 
 @Controller('projects')
 // @UseGuards(JwtAuthGuard)

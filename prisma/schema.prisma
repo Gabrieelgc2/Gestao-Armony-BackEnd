@@ -17,6 +17,7 @@ model Project {
   production_deadline Int?
 
   instrucao_date String?
+  instrucao_responsavel String?
  
   medicao_date String?
   medicao_responsavel String?
@@ -32,6 +33,8 @@ model Project {
   
   etapa_final_date String?
   etapa_final_responsavel String?
+  
+  contato_cliente String?
 
   @@map("projects")
 }
