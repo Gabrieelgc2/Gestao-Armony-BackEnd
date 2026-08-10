@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { Prisma } from "@prisma/client";
 import { PrismaService } from "prisma/prisma.service";
 import { NotFoundException } from "@nestjs/common";
+import { CreateProjectDto } from "src/dto/create-project.dto";
 
 @Injectable()
 export class ProjectsService {
@@ -16,6 +17,12 @@ export class ProjectsService {
 
   async findById(id: string) {
     return await this.prisma.project.findUnique({ where: { id } });
+  }
+
+  async createProject(createProjectDto: CreateProjectDto){
+    return await this.prisma.project.create({
+      data: createProjectDto
+    })
   }
 
   async update(id: string, data: Prisma.ProjectUpdateInput) {

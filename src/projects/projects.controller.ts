@@ -1,5 +1,6 @@
-import { Body, Controller, Get, NotFoundException, Param, ParseUUIDPipe, Patch, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, NotFoundException, Param, ParseUUIDPipe, Patch, Post } from "@nestjs/common";
 import { ProjectsService } from "./projects.service";
+import { CreateProjectDto } from "src/dto/create-project.dto";
 
 @Controller('projects')
 // @UseGuards(JwtAuthGuard)
@@ -24,6 +25,12 @@ export class ProjectsController {
 
     return project;
   }
+
+  @Post()
+  async createProject(@Body() createProjectDto: CreateProjectDto) {
+    return await this.projectsService.createProject(createProjectDto);
+  }
+
   @Patch(':id')
   async update(
     @Param('id', ParseUUIDPipe) id: string,
